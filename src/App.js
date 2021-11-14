@@ -1,8 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { useState } from 'react';
 
-// console.log(tinycolor)
-
 function clip(x, min, max) {
   return Math.max(min, Math.min(x, max))
 }
@@ -140,7 +138,7 @@ function ResizableDiv(props) {
           cursor: 'se-resize',
           left: '100%',
           top: '100%',
-          backgroundColor: '#f00',
+          backgroundColor: props.color,
           width: 10,
           height: 10,
         }}
@@ -264,7 +262,9 @@ function Canvas(props) {
               width: `${visBox.box[2]}%`,
               height: `${visBox.box[3]}%`,
               backgroundColor: addAlpha(props.color, 0.2),
-              border: '1px solid red',
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: props.color,
             }}
             x={visBox.box[0]}
             y={visBox.box[1]}
@@ -290,7 +290,7 @@ function App() {
       justifyContent: 'center'}}>
       <Canvas
         img="https://source.unsplash.com/500x500"
-        color="red"
+        color="blue"
       />
     </div>
   )
